@@ -1,18 +1,32 @@
 <!DOCTYPE html>
 <html lang=en>
+
 <head>
 	<script>
-		function read() {
-		var input = document.getElementById("text").value;
-		document.getElementById("div1").innerHTML = input;
+		function getInput() {
+			const myInput = document.getElementById('inputBox');
+			console.log(myInput.value);
+
+			const myOutput = document.getElementById('output');
+			if (myInput.value != NaN){
+				myOutput.innerHTML = sum(myInput.value);
+			}
+		}
+		function sum(max){
+			let total = 0;
+			for (let i = 0; i <= max; i++){
+				total = total + i;
+			}
+			return total;
 		}
 	</script>
 </head>
 
 <body>
-	<input type="text" id="text">
-	<button type="button" onclick="read()">Click Here</button>
-	
-	<div id="div1"></div>
+	<input type="number" id="inputBox">
+	<button onclick="getInput()">Click Here</button>
+
+	<div id="output"></div>
 </body>
+
 </html>
