@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Add or Subtract</title>
+
+
+    <style>
+        body{
+          background-color: bisque;
+      }
+      button{
+        border-radius: 5px;
+      }
+      input{
+          border-radius: 5px;
+      }
+  </style>
+</head>
+
+<body>
+    <section>
+        First Number: <input type="number" id="number1" placeholder="First Number"></input>
+        Second Number: <input type="number" id="number2" placeholder="Second Number"></input>
+        <button onclick="addIt()">Add it!</button>
+        <button onclick="subIt()">Subtract it!</button>
+    </section>
+    <div id="display_result"></div>
+
+    <script>
+        const num1 = document.getElementById('number1');
+        const num2 = document.getElementById('number2');
+        const result = document.getElementById('display_result');
+
+
+        function addIt() {
+            result.innerHTML = parseFloat(num1.value) + parseFloat(num2.value);
+        }
+
+        /*function addIt2(num1, num2) {
+            return parseFloat(num1) + parseFloat(num2);
+        }*/
+
+        //const addIt3 = (num1, num2) => parseFloat(num1) + parseFloat(num2);
+
+        function subIt() {
+            result.innerHTML = parseFloat(num1.value) - parseFloat(num2.value);
+        }
+    </script>
+</body>
+
+</html>
