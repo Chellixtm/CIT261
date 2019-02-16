@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+  <title>Nutrition Database</title>
+  <link rel="stylesheet" type="text/css" href="nutritionCSS.css">
+  <style> </style>
+</head>
+
+<body>
+	<div id="searchBar">
+        <input id="foodSearch" placeholder="Enter food here">
+        <button >Search</button>
+    </div>
+    <div id="refine">
+        Refine!
+    </div>
+    
+
+
+
+<script type="text/javascript" src="nutritionJSjs.js"></script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Array Sort Practice</title>
+    <style>
+    html {
+      font-size: 3em;
+    }
+    button {
+      font-size: 1em;
+    }
+    </style>
+  </head>
+
+  <body>
+
+    <button ontouchend="printList(sortName())">Sort: Name</button>
+    <button ontouchend="printList(sortSurname())">Sort: Surname</button>
+    <button ontouchend="printList(sortSurnameReverse())">Sort: -Surname</button>
+    <div id="example">Change Me Please</div>
+
+
+    <script>
+      const example = document.getElementById('example');
+
+      function dynamicSort(property) {
+        var sortOrder = 1;
+        if (property[0] === "-") {
+          sortOrder = -1;
+          property = property.substr(1);
+        }
+        return function (a,b) {
+          var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
+          return result * sortOrder;
+        };
+      }
+
+      var People = [
+        { Name: "Name", Surname: "Surname" },
+        { Name: "AAA", Surname: "ZZZ" },
+        { Name: "Name", Surname: "AAA" }
+      ];
+
+      function sortSurname() {
+        console.log('sortName function is called');
+          const surnameSortList = People.sort((a, b) => a.Surname.localeCompare(b.Surname));
+          return surnameSortList;
+      }
+
+      function sortName() {
+        console.log('sortSurname function is called');
+          const nameSortList = People.sort((a, b) => a.Name.localeCompare(b.Name));
+          return nameSortList;
+      }
+
+      function sortSurnameReverse() {
+        console.log('sortSurnameReverse function is called');
+          const surnameReverseList = People.sort((a, b) => b.Surname.localeCompare(a.Surname));
+          return surnameReverseList;
+      }
+
+      function printList(list){
+        example.innerHTML = '';
+        list.forEach(element => {
+          const p = document.createElement('p');
+          p.innerHTML = `${element.Name} ${element.Surname}`;
+          example.appendChild(p);        
+        });
+      }
+
+    </script>
+  </body>
+</html>

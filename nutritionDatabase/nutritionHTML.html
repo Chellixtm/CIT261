@@ -7,10 +7,25 @@
 </head>
 
 <body>
-	<div id="searchBar">
-        <input></input>
+	<div id="searchBar" class="searchBarStyle">
+        <input id="foodSearch" placeholder="Enter food here">
+        <button id="searchDatabase">Search</button>
+    </div>
+    <div id="refine" class="refineStyle">
+      <button ontouchend="printList(fatHighLow())">Fat: High</button>
+        Refine
     </div>
 
+    <div id="result" class="resultStyle">
+      <img src="apple.jpg" alt="Honeycrisp Apple" class="appleStyle">
+      <h2>Name: Honeycrisp Apple</h2>
+      <p>Calories: 95
+        <br>Fat: 0.3g
+        <br>Carbs: 25g
+        <br>Protein: .5g
+      </p>
+    </div>
+    
 
 
 
