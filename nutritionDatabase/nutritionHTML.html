@@ -1,34 +1,27 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-  <title>Nutrition Database</title>
-  <link rel="stylesheet" type="text/css" href="nutritionCSS.css">
-  <style> </style>
-</head>
+  <head>
+    <title>Nutrition Database</title>
+    <link rel="stylesheet" type="text/css" href="nutritionCSS.css" />
+    <style></style>
+  </head>
 
-<body>
-	<div id="searchBar" class="searchBarStyle">
-        <input id="foodSearch" placeholder="Enter food here">
-        <button id="searchDatabase">Search</button>
+  <body>
+    <div id="searchBar" class="searchBarStyle">
+      <input id="foodSearch" placeholder="Enter food here" />
+      <button id="searchDatabase">Search</button>
     </div>
     <div id="refine" class="refineStyle">
       <button ontouchend="printList(fatHighLow())">Fat: High</button>
-        Refine
+      <button ontouchend="printList(carbsHighLow())">Carbs: High</button>
+      <button ontouchend="printList(proteinHighLow())">Protein: High</button>
+      <button ontouchend="printList(fatLowHigh())">Fat: Low</button>
+      <button ontouchend="printList(carbsLowHigh())">Carbs: Low</button>
+      <button ontouchend="printList(proteinLowHigh())">Protein: Low</button>
     </div>
 
-    <div id="result" class="resultStyle">
-      <img src="apple.jpg" alt="Honeycrisp Apple" class="appleStyle">
-      <h2>Name: Honeycrisp Apple</h2>
-      <p>Calories: 95
-        <br>Fat: 0.3g
-        <br>Carbs: 25g
-        <br>Protein: .5g
-      </p>
-    </div>
-    
+    <div id="result" class="resultStyle"></div>
 
-
-
-<script type="text/javascript" src="nutritionJSjs.js"></script>
-</body>
+    <script type="text/javascript" src="nutritionJSjs.js"></script>
+  </body>
 </html>
