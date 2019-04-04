@@ -1,0 +1,110 @@
+
+//Reference Code
+
+// //test url for fetch
+// let urlExample = baseSearchURL + "&q=cheese" + endSearchURL;
+// //test fetch
+// fetch(urlExample)
+//   .then(test => {
+//     return test.json();
+//   })
+//   .then(log => {
+//     console.log(log);
+//   });
+
+// function renderFood(food) {
+//   const item = document.createElement("div");
+//   item.setAttribute("class", "resultStyle");
+//   item.setAttribute("id", "result");
+//   item.innerHTML = `
+
+//         <img src="${food.imgSrc}" alt="${food.imgAlt}">
+//         <h2>Name: ${food.name}</h2>
+//         <p>Calories: ${food.calories}
+//         <br>Fat: ${food.fat}g
+//         <br>Carbs: ${food.carbs}g
+//         <br>Protein: ${food.protein}g
+//         </p>
+//     `;
+//   return item;
+// }
+
+// {
+//   name: "HoneyCrisp Apple",
+//   imgSrc: "apple.jpg",
+//   imgAlt: "HoneyCrisp Apple",
+//   servingSize: "182g",
+//   calories: "95",
+//   fat: "0.3",
+//   carbs: "25",
+//   protein: ".5",
+//   vitamins: "Vitamin A:2%, Vitamin C:14%"
+// },
+// {
+//   name: "Ribeye Steak",
+//   imgSrc: "ribeyeSteak.jpg",
+//   imgAlt: "Raw Ribeye Steak",
+//   servingSize: "3oz",
+//   calories: "230",
+//   fat: "16",
+//   carbs: "0",
+//   protein: "21",
+//   vitamins: "Iron:11%"
+// },
+// {
+//   name: "Russet Potato",
+//   imgSrc: "russetPotato.jpg",
+//   imgAlt: "Russet Potato",
+//   servingSize: "1 potato (299g)",
+//   calories: "290",
+//   fat: ".4",
+//   carbs: "64.1",
+//   protein: "7.9",
+//   vitamins: "Vitamin C:64%, Vitamin B6:53%"
+// },
+// {
+//   name: "Whole Wheat Bread (Breadlovers)",
+//   imgSrc: "breadloversWholeWheat.jpg",
+//   imgAlt: "Breadlovers Whole Wheat Bread",
+//   servingSize: "1 Slice (32g)",
+//   calories: "80",
+//   fat: "1",
+//   carbs: "15",
+//   protein: "4",
+//   vitamins: "Vitamin C:2%, Calcium:2%, Iron:4%"
+// },
+// {
+//   name: "Meatloaf",
+//   imgSrc: "meatloaf.jpg",
+//   imgAlt: "Meatloaf",
+//   servingSize: "1/6th Meatloaf",
+//   calories: "276",
+//   fat: "9",
+//   carbs: "24",
+//   protein: "25",
+//   vitamins: ""
+// }
+
+  // const newList = await foodList.map(async food => {
+  //   let foodUrl = baseReportURL + `&ndbno=${food.ndbno}` + endReportURL;
+  //   //grabFoodDetails(foodUrl).then(getMacros => {
+  //   const getMacros = await grabFoodDetails(foodUrl);
+  //   const nutrients = getMacros.foods[0].food.nutrients;
+  //   food.calories = findNextMac(nutrients, "Energy");
+  //   food.fat = findNextMac(nutrients, "Total lipid (fat)");
+  //   food.carbs = findNextMac(nutrients, "Carbohydrate, by difference");
+  //   food.protein = findNextMac(nutrients, "Protein");
+  //   foodListElement.appendChild(renderFood(food));
+  //   console.log(food);
+  //   return food;
+  //   //});
+  // });
+
+  //add event listener to load initial list
+// window.addEventListener("load", () => {
+//   let foodListElement = document.getElementById("result");
+//   foodListElement.innerHTML = "";
+//   foodList.map(food => {
+//     foodListElement.appendChild(renderFood(food));
+//   });
+// });

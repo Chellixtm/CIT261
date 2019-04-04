@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Title of Your Page</title>
+    <script>
+      var list = [17, 8, 9, 5, 10];
+      var value = addEnds(list);
+
+      function addEnds() {
+        var add = list[0] + list[list.length - 1];
+        return add;
+      }
+    </script>
+
+    <style></style>
+  </head>
+
+  <body>
+    <div id="output"></div>
+    <button onclick="addEnds">Click</button>
+  </body>
+</html>

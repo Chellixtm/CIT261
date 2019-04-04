@@ -12,16 +12,18 @@
       <button id="searchDatabase">Search</button>
     </div>
     <div id="refine" class="refineStyle">
-      <button ontouchend="printList(fatHighLow())">Fat: High</button>
-      <button ontouchend="printList(carbsHighLow())">Carbs: High</button>
-      <button ontouchend="printList(proteinHighLow())">Protein: High</button>
-      <button ontouchend="printList(fatLowHigh())">Fat: Low</button>
-      <button ontouchend="printList(carbsLowHigh())">Carbs: Low</button>
-      <button ontouchend="printList(proteinLowHigh())">Protein: Low</button>
+      <button id="fatHigh">Fat: High</button>
+      <button id="carbsHigh">Carbs: High</button>
+      <button id="proteinHigh">Protein: High</button>
+      <button id="fatLow">Fat: Low</button>
+      <button id="carbsLow">Carbs: Low</button>
+      <button id="proteinLow">Protein: Low</button>
     </div>
 
-    <div id="result" class="resultStyle"></div>
+    <div id="result" class="resultStyle">
+      <h2>Start Search to Find Food</h2>
+    </div>
 
-    <script type="text/javascript" src="nutritionJSjs.js"></script>
+    <script type="module" src="nutritionJSjs.js"></script>
   </body>
 </html>
