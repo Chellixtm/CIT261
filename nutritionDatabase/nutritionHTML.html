@@ -2,28 +2,35 @@
 <html>
   <head>
     <title>Nutrition Database</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="nutritionCSS.css" />
     <style></style>
   </head>
 
   <body>
-    <div id="searchBar" class="searchBarStyle">
-      <input id="foodSearch" placeholder="Enter food here" />
-      <button id="searchDatabase">Search</button>
-    </div>
-    <div id="refine" class="refineStyle">
-      <button id="fatHigh">Fat: High</button>
-      <button id="carbsHigh">Carbs: High</button>
-      <button id="proteinHigh">Protein: High</button>
-      <button id="fatLow">Fat: Low</button>
-      <button id="carbsLow">Carbs: Low</button>
-      <button id="proteinLow">Protein: Low</button>
-    </div>
+    <main>
+      <div id="searchBar" class="searchBarStyle">
+        <input id="foodSearch" placeholder="Enter food here">
+        <button id="searchDatabase">Search</button>
+      </div>
+      <div id="refine" class="refineStyle">
+        <button id="fatHigh">Fat: High</button>
+        <button id="carbsHigh">Carbs: High</button>
+        <button id="proteinHigh">Protein: High</button>
+        <button id="fatLow">Fat: Low</button>
+        <button id="carbsLow">Carbs: Low</button>
+        <button id="proteinLow">Protein: Low</button>
+      </div>
 
-    <div id="result" class="resultStyle">
-      <h2>Start Search to Find Food</h2>
-    </div>
+      <div id="result" class="resultStyle">
+        <h2>Enter Food to Begin</h2>
+      </div>
 
+      <div id="foodDetails"></div>
+          <button id="backToList">Back</button>
+
+
+    </main>
     <script type="module" src="nutritionJSjs.js"></script>
   </body>
 </html>
