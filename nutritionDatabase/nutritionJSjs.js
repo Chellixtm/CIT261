@@ -12,25 +12,28 @@ const endSearchURL =
 //array for api elements
 let foodList = [];
 
+//grab elements for buttons
+const refineButtons = document.getElementById("refine");
+const list = document.getElementById("result");
+const foodDetails = document.getElementById("foodDetails");
+const searchBar = document.getElementById("searchBar");
+const button = document.getElementById("backToList");
+
 //add event listener to search database button
-document.getElementById("searchDatabase").addEventListener("touchend", function() {
+document
+  .getElementById("searchDatabase")
+  .addEventListener("touchend", function() {
     searchAPI();
   });
 
-  //add event listener for back button
-document.getElementById('backToList').addEventListener("click", () => {
-    let refineButtons = document.getElementById("refine");
-    let list = document.getElementById("result");
-    let foodDetails = document.getElementById("foodDetails");
-    let searchBar = document.getElementById("searchBar");
-    let button = document.getElementById('backToList');
-    
-    list.style.transform = "translateX(0vw)";
-    refineButtons.style.transform = "translateX(0vw)";
-    searchBar.style.transform = "translateX(0vw)";
-    foodDetails.style.transform = "translateX(100vw)";
-    button.style.transform = "translateX(100vw)";
-  })
+//add event listener for back button
+document.getElementById("backToList").addEventListener("click", () => {
+  list.style.transform = "translateX(0vw)";
+  refineButtons.style.transform = "translateX(0vw)";
+  searchBar.style.transform = "translateX(0vw)";
+  foodDetails.style.transform = "translateX(100vw)";
+  button.style.transform = "translateX(100vw)";
+});
 
 //function to call an api search
 async function searchAPI() {
@@ -107,42 +110,43 @@ function findNextMac(nutrients, query) {
   }
   const match = nutrients.find(macro => macro.name === query);
   if (match) {
-    return match.value + " " + match.unit;
+    let value = parseFloat(match.value);
+    let unit = match.unit;
+    return Math.round(value) + " " + unit;
   } else {
     return "0";
   }
 }
 
 //function to create each food element in returned array
-function renderFood(food) {
+function renderFood(food, highlight) {
   const item = document.createElement("div");
   item.setAttribute("id", "resultRender");
   item.innerHTML = `
         
-        <h2>Name: ${food.name}</h2>
-        <p>
-        <b>Calories:</b> ${food.calories} <br>
-        <b>Fat:</b> ${food.fat} <br>
-        <b>Carbs:</b> ${food.carbs} <br>
-        <b>Protein:</b> ${food.protein}
-        </p>
+        <div class="searchName">Name: ${food.name}</div>
+        <div class="miniSearch">
+        <b>Calories:</b> <span class="right">${food.calories} </span>
+        <div ${addHighlight(highlight, "fat")}><b>Fat:</b> <span class="right">${food.fat} </span></div>
+        <div ${addHighlight(highlight, "carbs")}><b>Carbs:</b> <span class="right">${food.carbs} </span></div>
+        <div ${addHighlight(highlight, "protein")}><b>Protein:</b> <span class="right">${food.protein} </span></div>
+        </div>
     `;
   item.addEventListener("click", () => {
-    let refineButtons = document.getElementById("refine");
-    let list = document.getElementById("result");
-    let foodDetails = document.getElementById("foodDetails");
-    let searchBar = document.getElementById("searchBar");
-    let button = document.getElementById('backToList');
-
     list.style.transform = "translateX(-100vw)";
     refineButtons.style.transform = "translateX(-100vw)";
     searchBar.style.transform = "translateX(-100vw)";
     foodDetails.style.transform = "translateX(0vw)";
     button.style.transform = "translateX(0vw)";
     foodDetails.innerHTML = renderFoodDetails(food);
-
   });
   return item;
+}
+
+function addHighlight(highlight, check) {
+  if(highlight == check) {
+    return "class=highlight";
+  }
 }
 
 //creat function to render details for food
@@ -151,31 +155,60 @@ function renderFoodDetails(food) {
   <div class="headNutrient">Nutrition Facts</div>
   <div class="labelNutrient">
     <div class="nameNutrient">${food.name}</div>
-    <div class="majorNutrient" style="font-size:1.5em"><b>Calories:</b> <span class="right">${food.calories} </span><br></div>
-    <div class="majorNutrient"><b>Total Fat:</b> <span class="right">${food.fat} </span><br></div>
-    <div class="minorNutrient">Saturated Fat: <span class="right">${food.saturated} </span><br></div>
-    <div class="minorNutrient">Monosaturated Fat: <span class="right">${food.mono} </span><br></div>
-    <div class="minorNutrient">Polysaturated Fat: <span class="right">${food.poly} </span><br></div>
-    <div class="minorNutrient"><i>Trans</i> Fat: <span class="right">${food.trans} </span><br></div>
-    <div class="majorNutrient"><b>Cholesterol:</b> <span class="right">${food.chol} </span><br></div>
-    <div class="majorNutrient"><b>Sodium:</b> <span class="right">${food.sodium} </span><br></div>
-    <div class="majorNutrient"><b>Total Carbohydrates:</b> <span class="right">${food.carbs} </span><br></div>
-    <div class="minorNutrient">Fiber: <span class="right">${food.fiber} </span><br></div>
-    <div class="majorNutrient"><b>Protein:</b> <span class="right">${food.protein} </span><br></div>
-    <div class="vitaminNutrient">Vitamin C: <span class="right">${food.vitc} </span><br></div>
-    <div class="vitaminNutrient">Calcium: <span class="right">${food.calcium} </span><br></div>
-    <div class="vitaminNutrient">Iron: <span class="right">${food.iron} </span><br></div>
-    <div class="vitaminNutrient">Potassium: <span class="right">${food.potassium} </span><br></div>
+    <div class="majorNutrient" style="font-size:1.5em"><b>Calories:</b> <span class="rightB">${
+      food.calories
+    } </span><br></div>
+    <div class="majorNutrient"><b>Total Fat:</b> <span class="rightB">${
+      food.fat
+    } </span><br></div>
+    <div class="minorNutrient">Saturated Fat: <span class="rightB">${
+      food.saturated
+    } </span><br></div>
+    <div class="minorNutrient">Monosaturated Fat: <span class="rightB">${
+      food.mono
+    } </span><br></div>
+    <div class="minorNutrient">Polysaturated Fat: <span class="rightB">${
+      food.poly
+    } </span><br></div>
+    <div class="minorNutrient"><i>Trans</i> Fat: <span class="rightB">${
+      food.trans
+    } </span><br></div>
+    <div class="majorNutrient"><b>Cholesterol:</b> <span class="rightB">${
+      food.chol
+    } </span><br></div>
+    <div class="majorNutrient"><b>Sodium:</b> <span class="rightB">${
+      food.sodium
+    } </span><br></div>
+    <div class="majorNutrient"><b>Total Carbohydrates:</b> <span class="rightB">${
+      food.carbs
+    } </span><br></div>
+    <div class="minorNutrient">Fiber: <span class="rightB">${
+      food.fiber
+    } </span><br></div>
+    <div class="majorNutrient"><b>Protein:</b> <span class="rightB">${
+      food.protein
+    } </span><br></div>
+    <div class="vitaminNutrient">Vitamin C: <span class="rightB">${
+      food.vitc
+    } </span><br></div>
+    <div class="vitaminNutrient">Calcium: <span class="rightB">${
+      food.calcium
+    } </span><br></div>
+    <div class="vitaminNutrient">Iron: <span class="rightB">${
+      food.iron
+    } </span><br></div>
+    <div class="vitaminNutrient">Potassium: <span class="rightB">${
+      food.potassium
+    } </span><br></div>
   </div>
   `;
 }
-
 
 //Create functions to sort food based on macronutrients
 
 //Hight fat to low fat
 document.getElementById("fatHigh").addEventListener("touchend", () => {
-  printList(fatHighLow());
+  printList(fatHighLow(), "fat");
 });
 function fatHighLow() {
   const fatHighLow = foodList.sort(
@@ -186,7 +219,7 @@ function fatHighLow() {
 
 //Low fat to high fat
 document.getElementById("fatLow").addEventListener("touchend", () => {
-  printList(fatLowHigh());
+  printList(fatLowHigh(), "fat");
 });
 function fatLowHigh() {
   const fatLowHigh = foodList.sort(
@@ -197,7 +230,7 @@ function fatLowHigh() {
 
 //High carb to low carb
 document.getElementById("carbsHigh").addEventListener("touchend", () => {
-  printList(carbsHighLow());
+  printList(carbsHighLow(), "carbs");
 });
 function carbsHighLow() {
   const carbsHighLow = foodList.sort(
@@ -208,7 +241,7 @@ function carbsHighLow() {
 
 //Low carb to high carb
 document.getElementById("carbsLow").addEventListener("touchend", () => {
-  printList(carbsLowHigh());
+  printList(carbsLowHigh(), "carbs");
 });
 function carbsLowHigh() {
   const carbsLowHigh = foodList.sort(
@@ -219,7 +252,7 @@ function carbsLowHigh() {
 
 //High protein to low protein
 document.getElementById("proteinHigh").addEventListener("touchend", () => {
-  printList(proteinHighLow());
+  printList(proteinHighLow(), "protein");
 });
 function proteinHighLow() {
   const proteinHighLow = foodList.sort(
@@ -230,7 +263,7 @@ function proteinHighLow() {
 
 //low protein to high protein
 document.getElementById("proteinLow").addEventListener("touchend", () => {
-  printList(proteinLowHigh());
+  printList(proteinLowHigh(), "protein");
 });
 function proteinLowHigh() {
   const proteinLowHigh = foodList.sort(
@@ -240,10 +273,10 @@ function proteinLowHigh() {
 }
 
 //create function to print the list to the inner html using renderFood()
-function printList(list) {
+function printList(list, sort) {
   let result = document.getElementById("result");
   result.innerHTML = "";
   list.forEach(food => {
-    result.appendChild(renderFood(food));
+    result.appendChild(renderFood(food, sort));
   });
 }
