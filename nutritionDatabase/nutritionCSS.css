@@ -1,6 +1,7 @@
 body, html {
   max-width: 100vw;
   overflow-x: hidden;
+  font-family: Arial, Helvetica, sans-serif;
 }
 body {
   position: relative;
@@ -21,17 +22,24 @@ body {
   width: 100%;
   height: 2em;
   align-self: flex-start;
+  padding-left: 2vw;
 }
 #searchDatabase {
   top: 0;
   height: 2.4em;
   align-self: flex-end;
+  border: none;
+  border-bottom: .05em solid gray;
+  background-color: #b3b3b3;
+}
+#searchDatabase:active {
+  background-color: gray;
 }
 .refineStyle {
   display: flex;
   height: 4em;
   width: 100vw;
-  background-color: gray;
+  background-color: #b3b3b3;
   flex-wrap: wrap;
   transition: transform .3s;
 }
@@ -40,14 +48,22 @@ body {
 }
 .refineStyle button {
   height: 50%;
-  width: 33%;
+  width: 33.33333333%;
   font-size: 0.8em;
+  background-color: #b3b3b3;
+  border: .05em;
+  border-style: solid;
+  border-color: gray;
+}
+.refineStyle button:active {
   background-color: gray;
 }
 .resultStyle {
   height: 100%;
   width: 96vw;
-  border: 2vw solid maroon;
+  border-width: 1vw 2vw;
+  border-style: solid;
+  border-color: maroon;
   text-align: center;
   transition: transform .3s;
   -webkit-animation: fadein 0.5s;
@@ -59,11 +75,13 @@ body {
   border-width: 1vw 0vw 1vw 0vw;
   border-style: solid;
   border-color:  maroon;
+  padding-left: 2vw;
+  padding-right: 2vw;
   transition: transform .3s;
   -webkit-animation: fadein 0.5s;
 }
 #resultRender:active {
-  background-color: burlywood;
+  background-color: #dfdf86;
 }
 #resultRender p {
   line-height: 90%;
@@ -81,51 +99,69 @@ body {
   border: none;
   position: fixed;
   bottom: 0;
-  background-color: gray;
+  background-color: #b3b3b3;
   width: 100vw;
-  height: 2em;
+  height: 2.5em;
   margin: 0;
   transform: translateX(100vw);
   transition: transform .3s;
   font-weight: bold;
 }
 #backToList:active{
-  background-color: slategray;
+  background-color: gray;
 }
 .labelNutrient {
-  border: 2vw solid black;
+  border-width: 1vw 2vw 2vw 2vw;
+  border-style: solid;
+  border-color: maroon;
   width: 96vw;
 }
-.nameNutrient {
-  max-height: 11em;
-}
 .headNutrient {
-  color: maroon;
+  height: 1.1em;
+  border-top: 2vw solid maroon;
+  border-left:2vw solid maroon;
+  border-right: 2vw solid maroon;
   font-size: 2em;
+  font-weight: bold;
+  padding-left: 2vw;
+  padding-right: 2vw;
+}
+.nameNutrient {
+  color: black;
+  height: 7.75em;
+  font-size: 1.8em;
   border-width: 0vw 0vw 1vw 0vw;
   border-style: solid;
-  border-color: black;
+  border-color: maroon;
   margin-bottom: .5em;
   font-weight: bold;
+  padding-left: 2vw;
+  padding-right: 2vw;
 }
 .majorNutrient {
-  color: maroon;
+  color: black;
   border-style: solid;
   border-width: 0vw 0vw .5vw 0vw;
-  border-color: black;
+  border-color: maroon;
+  padding-left: 2vw;
+  padding-right: 2vw;
 }
 .minorNutrient {
-  color: maroon;
+  color: black;
   border-style: solid;
   border-width: 0vw 0vw .5vw 0vw;
-  border-color: black;
+  border-color: maroon;
   text-indent: 2em;
+  padding-left: 2vw;
+  padding-right: 2vw;
 }
 .vitaminNutrient {
-  color: maroon;
+  color: black;
   border-style: solid;
   border-width: 0vw 0vw .5vw 0vw;
-  border-color: black;
+  border-color: maroon;
+  padding-left: 2vw;
+  padding-right: 2vw;
 }
 .right {
   float: right;

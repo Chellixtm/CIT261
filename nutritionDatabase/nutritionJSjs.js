@@ -148,10 +148,10 @@ function renderFood(food) {
 //creat function to render details for food
 function renderFoodDetails(food) {
   return `
-  <div class="nameNutrient"><h1>${food.name}</h1></div>
+  <div class="headNutrient">Nutrition Facts</div>
   <div class="labelNutrient">
-    <div class="headNutrient">Nutrition Facts</div>
-    <div class="majorNutrient" style="font-size:2em"><b>Calories:</b> <span class="right">${food.calories} </span><br></div>
+    <div class="nameNutrient">${food.name}</div>
+    <div class="majorNutrient" style="font-size:1.5em"><b>Calories:</b> <span class="right">${food.calories} </span><br></div>
     <div class="majorNutrient"><b>Total Fat:</b> <span class="right">${food.fat} </span><br></div>
     <div class="minorNutrient">Saturated Fat: <span class="right">${food.saturated} </span><br></div>
     <div class="minorNutrient">Monosaturated Fat: <span class="right">${food.mono} </span><br></div>
