@@ -44,9 +44,6 @@ body {
   flex-wrap: wrap;
   transition: transform 0.3s;
 }
-#refineShowMore {
-  align-self: stretch;
-}
 .refineStyle button {
   height: 50%;
   width: 33.33333333%;
